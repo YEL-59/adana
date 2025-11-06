@@ -12,24 +12,39 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <Image src="/logo.jpg" alt="Logo" width={100} height={100} />
+            <Image src="/logo.png" alt="Logo" width={100} height={100} />
           </Link>
 
           {/* Navigation Links */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link href="/" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
+            <Link
+              href="/"
+              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+            >
               Home
             </Link>
-            <Link href="/shop" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+            <Link
+              href="/shop"
+              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+            >
               Shop
             </Link>
-            <Link href="/hairisafe" className="text-sm font-medium text-primary hover:text-primary/80 transition-colors">
+            <Link
+              href="/hairisafe"
+              className="text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+            >
               Hairisafe
             </Link>
-            <Link href="/our-story" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+            <Link
+              href="/our-story"
+              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+            >
               Our story
             </Link>
-            <Link href="/contact" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+            <Link
+              href="/contact"
+              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+            >
               Contact Us
             </Link>
           </div>
@@ -37,16 +52,28 @@ export default function Navbar() {
           {/* Utility Icons */}
           <div className="flex items-center space-x-4">
             <Link href="/search">
-              <Button variant="ghost" size="icon" className="text-foreground hover:text-primary">
+              <Button
+                variant="ghost"
+                size="icon"
+                className="text-foreground hover:text-primary"
+              >
                 <Search className="h-5 w-5" />
               </Button>
             </Link>
             <Link href="/login">
-              <Button variant="ghost" size="icon" className="text-foreground hover:text-primary">
+              <Button
+                variant="ghost"
+                size="icon"
+                className="text-foreground hover:text-primary"
+              >
                 <User className="h-5 w-5" />
               </Button>
             </Link>
-            <Button variant="ghost" size="icon" className="text-foreground hover:text-primary relative">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="text-foreground hover:text-primary relative"
+            >
               <ShoppingBag className="h-5 w-5" />
               <span className="absolute top-0 right-0 h-4 w-4 bg-primary text-primary-foreground text-xs rounded-full flex items-center justify-center">
                 0
@@ -58,4 +85,3 @@ export default function Navbar() {
     </nav>
   );
 }
-
