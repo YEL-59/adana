@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Search, User, ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 export default function Navbar() {
   return (
@@ -11,10 +12,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <div className="flex flex-col leading-none">
-              <span className="text-2xl font-bold text-primary">OUR</span>
-              <span className="text-2xl font-bold text-primary">HAIRITAGE</span>
-            </div>
+            <Image src="/logo.jpg" alt="Logo" width={100} height={100} />
           </Link>
 
           {/* Navigation Links */}

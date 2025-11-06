@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Footer() {
@@ -10,8 +11,7 @@ export default function Footer() {
           {/* Logo and Description */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex flex-col leading-none mb-4">
-              <span className="text-2xl font-bold text-primary">OUR</span>
-              <span className="text-2xl font-bold text-primary">HAIRITAGE</span>
+              <Image src="/footer.jpg" alt="Logo" width={200} height={200} />
             </div>
             <p className="text-sm text-muted-foreground max-w-md">
               Helping you identify harmful ingredients in hair products and protect your health, your hair, and your peace of mind.
