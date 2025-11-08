@@ -10,7 +10,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo and Description */}
           <div className="col-span-1 md:col-span-2">
-            <div className="flex flex-col leading-none mb-4">
+            <div className="flex flex-col leading-none mb-4 -ml-5">
               <Image src="/footer.jpg" alt="Logo" width={200} height={200} />
             </div>
             <p className="text-sm text-muted-foreground max-w-md">
