@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { Send, ArrowLeft, Bot, User as UserIcon, CheckCircle2, AlertTriangle, XCircle } from "lucide-react";
+import { Send, ArrowLeft, Bot, User as UserIcon, CheckCircle2, AlertTriangle, XCircle, ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
@@ -23,6 +23,7 @@ export default function SearchPage() {
         { name: "Mineral Oil", status: "unsafe", note: "Linked to irritation and potential hair weakening" },
         { name: "Silicones (Dimethicone, Cyclopentasiloxane)", status: "caution", note: "Can cause buildup on extensions over time" },
       ],
+      showFeedbackPrompt: true,
     },
     {
       role: "user",
@@ -31,6 +32,7 @@ export default function SearchPage() {
     },
   ]);
   const [isLoading, setIsLoading] = useState(false);
+  const [feedbackGiven, setFeedbackGiven] = useState({});
   const messagesEndRef = useRef(null);
 
   const scrollToBottom = () => {
@@ -71,26 +73,96 @@ export default function SearchPage() {
           content: "image",
           image: reader.result,
         };
-        setMessages((prev) => [...prev, userMessage]);
-        
-        // Simulate AI analysis after image upload
-        setTimeout(() => {
-          const botMessage = {
-            role: "assistant",
-            content: "I've analyzed the product image. Here's what I found:",
-            ingredients: [
-              { name: "Keratin", status: "safe", note: "" },
-              { name: "Argan Oil", status: "safe", note: "" },
-              { name: "Formaldehyde", status: "caution", note: "Can cause buildup on extensions over time" },
-              { name: "Mineral Oil", status: "unsafe", note: "Linked to irritation and potential hair weakening" },
-              { name: "Silicones (Dimethicone, Cyclopentasiloxane)", status: "caution", note: "Can cause buildup on extensions over time" },
-            ],
-          };
-          setMessages((prev) => [...prev, botMessage]);
-        }, 1500);
+        setMessages((prev) => {
+          const updated = [...prev, userMessage];
+          
+          // Simulate AI analysis after image upload
+          setTimeout(() => {
+            const botMessage = {
+              role: "assistant",
+              content: "I've analyzed the product image. Here's what I found:",
+              ingredients: [
+                { name: "Keratin", status: "safe", note: "" },
+                { name: "Argan Oil", status: "safe", note: "" },
+                { name: "Formaldehyde", status: "caution", note: "Can cause buildup on extensions over time" },
+                { name: "Mineral Oil", status: "unsafe", note: "Linked to irritation and potential hair weakening" },
+                { name: "Silicones (Dimethicone, Cyclopentasiloxane)", status: "caution", note: "Can cause buildup on extensions over time" },
+              ],
+              showFeedbackPrompt: true,
+            };
+            setMessages((prev) => [...prev, botMessage]);
+          }, 1500);
+          
+          return updated;
+        });
       };
       reader.readAsDataURL(file);
     }
+  };
+
+  const handleFeedback = (isHairSafe, messageIndex) => {
+    // Mark feedback as given for this message
+    setFeedbackGiven((prev) => ({ ...prev, [messageIndex]: true }));
+
+    // Add user feedback message
+    const feedbackMessage = {
+      role: "user",
+      content: isHairSafe ? "Yes" : "No",
+    };
+    setMessages((prev) => [...prev, feedbackMessage]);
+
+    // Remove feedback prompt from the message
+    setMessages((prev) =>
+      prev.map((msg, idx) =>
+        idx === messageIndex && msg.showFeedbackPrompt
+          ? { ...msg, showFeedbackPrompt: false }
+          : msg
+      )
+    );
+
+    setIsLoading(true);
+
+    // Simulate API response based on feedback
+    setTimeout(() => {
+      let recommendationMessage;
+      
+      if (isHairSafe) {
+        // If yes, show other brand recommendations in that category
+        recommendationMessage = {
+          role: "assistant",
+          content: "Great! Since this product is hair safe, here are other recommended brands in this category:",
+          recommendations: [
+            { name: "Brand A - Natural Hair Care", price: "$24.99", rating: 4.8, safe: true },
+            { name: "Brand B - Organic Solutions", price: "$29.99", rating: 4.9, safe: true },
+            { name: "Brand C - Premium Hair Care", price: "$34.99", rating: 4.7, safe: true },
+          ],
+        };
+      } else {
+        // If no, show safe alternatives for purchase
+        recommendationMessage = {
+          role: "assistant",
+          content: "I understand. Here are safe alternatives that are safe to use for our customers:",
+          recommendations: [
+            { name: "Safe Alternative 1 - Gentle Formula", price: "$19.99", rating: 4.9, safe: true, inStock: true },
+            { name: "Safe Alternative 2 - Natural Blend", price: "$22.99", rating: 4.8, safe: true, inStock: true },
+            { name: "Safe Alternative 3 - Organic Choice", price: "$27.99", rating: 5.0, safe: true, inStock: true },
+          ],
+        };
+      }
+
+      setMessages((prev) => [...prev, recommendationMessage]);
+
+      // Generate final summary after a short delay
+      setTimeout(() => {
+        const summaryMessage = {
+          role: "assistant",
+          content: `## Final Summary\n\n**Product Analysis:** The product contains both safe and potentially problematic ingredients.\n\n**Your Feedback:** ${isHairSafe ? "Yes - Product is hair safe" : "No - Product is not hair safe"}\n\n**Recommendations:** ${isHairSafe ? "Other brand options in this category have been provided for your consideration." : "Safe alternative products have been listed for purchase."}\n\nThank you for your feedback! This helps us better serve our customers.`,
+          isSummary: true,
+        };
+        setMessages((prev) => [...prev, summaryMessage]);
+        setIsLoading(false);
+      }, 1000);
+    }, 1000);
   };
 
   const getStatusIcon = (status) => {
@@ -199,6 +271,80 @@ export default function SearchPage() {
                         </li>
                       ))}
                     </ul>
+                  </div>
+                )}
+
+                {/* Feedback Prompt */}
+                {message.showFeedbackPrompt && !feedbackGiven[index] && (
+                  <div className="mt-4 pt-4 border-t border-border">
+                    <p className="text-sm font-medium mb-3">Is this product hair safe?</p>
+                    <div className="flex gap-2">
+                      <Button
+                        onClick={() => handleFeedback(true, index)}
+                        size="sm"
+                        className="bg-green-600 hover:bg-green-700 text-white"
+                      >
+                        Yes
+                      </Button>
+                      <Button
+                        onClick={() => handleFeedback(false, index)}
+                        size="sm"
+                        variant="outline"
+                        className="border-red-600 text-red-600 hover:bg-red-50"
+                      >
+                        No
+                      </Button>
+                    </div>
+                  </div>
+                )}
+
+                {/* Recommendations */}
+                {message.recommendations && (
+                  <div className="mt-4 space-y-3">
+                    <div className="inline-block px-3 py-1 rounded-full border border-border bg-background text-sm font-medium">
+                      {message.content.includes("safe alternatives") ? "Safe Alternatives" : "Recommended Brands"}
+                    </div>
+                    <div className="grid gap-3">
+                      {message.recommendations.map((rec, idx) => (
+                        <div
+                          key={idx}
+                          className="flex items-center justify-between p-3 rounded-lg border border-border bg-background hover:bg-muted/50 transition-colors"
+                        >
+                          <div className="flex-1">
+                            <div className="flex items-center gap-2">
+                              <ShoppingBag className="h-4 w-4 text-primary" />
+                              <span className="font-medium text-sm">{rec.name}</span>
+                              {rec.safe && (
+                                <span className="px-2 py-0.5 bg-green-100 text-green-800 text-xs rounded-full">
+                                  Safe
+                                </span>
+                              )}
+                            </div>
+                            <div className="flex items-center gap-3 mt-1 text-xs text-muted-foreground">
+                              <span>{rec.price}</span>
+                              <span>⭐ {rec.rating}</span>
+                              {rec.inStock && (
+                                <span className="text-green-600">In Stock</span>
+                              )}
+                            </div>
+                          </div>
+                          <Button size="sm" variant="outline" className="ml-2">
+                            View
+                          </Button>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Summary */}
+                {message.isSummary && (
+                  <div className="mt-4 pt-4 border-t border-border">
+                    <div className="prose prose-sm max-w-none">
+                      <div className="whitespace-pre-wrap text-sm leading-relaxed">
+                        {message.content}
+                      </div>
+                    </div>
                   </div>
                 )}
               </div>

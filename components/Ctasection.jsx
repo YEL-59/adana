@@ -1,7 +1,7 @@
 const CtaSection = () => {
     return (
         <div>
-            <section className="py-20 px-4 bg-orange-400">
+            <section className="py-20 px-4 bg-[#5C4033]">
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
                         Take the guesswork out of hair care
