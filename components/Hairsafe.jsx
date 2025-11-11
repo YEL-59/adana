@@ -3,13 +3,13 @@ const Hairsafe = () => {
     return (
         <div>
             {/* Why HairiSafe Exists Section */}
-            <section className="py-16 px-4">
+            <section className="py-12 sm:py-16 px-4">
                 <div className="max-w-6xl mx-auto">
-                    <h2 className="text-4xl font-bold text-gray-900 text-center mb-12">
+                    <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 text-center mb-8 sm:mb-12">
                         Why HairiSafe Exists
                     </h2>
 
-                    <div className="flex flex-col md:flex-row items-center gap-12">
+                    <div className="flex flex-col md:flex-row items-center gap-8 sm:gap-12">
                         {/* Left: Image */}
                         <div className="flex-1">
                             <div className="w-full max-w-md mx-auto rounded-3xl overflow-hidden">
@@ -23,14 +23,14 @@ const Hairsafe = () => {
 
                         {/* Right: Content */}
                         <div className="flex-1 max-w-xl">
-                            <div className="inline-flex items-center gap-2 bg-orange-400 text-white px-4 py-2 rounded-full mb-6">
-                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <div className="inline-flex items-center gap-2 bg-[#5C4033] text-white px-3 sm:px-4 py-2 rounded-full mb-4 sm:mb-6">
+                                <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                                 </svg>
-                                <span className="font-medium">Our mission</span>
+                                <span className="font-medium text-sm sm:text-base">Our mission</span>
                             </div>
 
-                            <h3 className="text-4xl font-bold text-gray-900 mb-6">
+                            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
                                 Because what we put on our hair matters
                             </h3>
 

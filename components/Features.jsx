@@ -105,32 +105,32 @@ const features = [
 
 export default function FeaturesSection() {
     return (
-        <section className="py-20 bg-gray-50 text-gray-900">
-            <div className="max-w-7xl mx-auto px-6 text-center">
-                <h2 className="text-3xl font-bold mb-2">Features</h2>
-                <p className="text-gray-600 mb-12">
+        <section className="py-12 sm:py-16 md:py-20 bg-gray-50 text-gray-900">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center">
+                <h2 className="text-2xl sm:text-3xl font-bold mb-2">Features</h2>
+                <p className="text-gray-600 mb-8 sm:mb-12 text-sm sm:text-base px-4">
                     Five powerful features working together to ensure every product meets
                     the highest standards.
                 </p>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-10">
                     {features.map((feature) => (
                         <div
                             key={feature.title}
-                            className="flex items-start gap-4 p-6 bg-white rounded-lg shadow hover:shadow-lg transition"
+                            className="flex items-start gap-3 sm:gap-4 p-4 sm:p-6 bg-white rounded-lg shadow hover:shadow-lg transition-all duration-200"
                         >
-                            <div className="bg-orange-500 p-3 rounded-lg">
+                            <div className="bg-[#5C4033] p-2 sm:p-3 rounded-lg flex-shrink-0">
                                 {feature.icon}
                             </div>
-                            <div>
-                                <h3 className="text-lg font-semibold">{feature.title}</h3>
-                                <p className="text-gray-500 text-sm">{feature.description}</p>
+                            <div className="flex-1 min-w-0">
+                                <h3 className="text-base sm:text-lg font-semibold mb-1">{feature.title}</h3>
+                                <p className="text-gray-500 text-xs sm:text-sm leading-relaxed">{feature.description}</p>
                             </div>
                         </div>
                     ))}
                 </div>
 
-                <Button className="bg-black text-white px-6 py-3 hover:bg-gray-800">
+                <Button className="bg-[#5C4033] text-white px-6 sm:px-8 py-3 sm:py-4 hover:bg-[#4a3328] transition-all duration-200 shadow-lg hover:shadow-xl text-sm sm:text-base">
                     Start Scanning Now
                 </Button>
             </div>

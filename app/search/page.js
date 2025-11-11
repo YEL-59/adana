@@ -194,20 +194,20 @@ export default function SearchPage() {
   return (
     <div className="flex flex-col h-screen bg-background">
       {/* Header */}
-      <header className="bg-background border-b border-border px-4 py-4">
-        <div className="flex items-center gap-3">
+      <header className="bg-background border-b border-border px-3 sm:px-4 py-3 sm:py-4">
+        <div className="flex items-center gap-2 sm:gap-3">
           <Link href="/">
-            <Button variant="ghost" size="icon" className="h-8 w-8">
-              <ArrowLeft className="h-5 w-5" />
+            <Button variant="ghost" size="icon" className="h-8 w-8 sm:h-9 sm:w-9">
+              <ArrowLeft className="h-4 w-4 sm:h-5 sm:w-5" />
             </Button>
           </Link>
-          <h1 className="text-lg font-semibold">Hairisafe AI Ingredient Analyzer</h1>
+          <h1 className="text-base sm:text-lg font-semibold truncate">Hairisafe AI Ingredient Analyzer</h1>
         </div>
       </header>
 
       {/* Chat Messages Area */}
-      <div className="flex-1 overflow-y-auto bg-background px-4 py-6">
-        <div className="max-w-3xl mx-auto space-y-4">
+      <div className="flex-1 overflow-y-auto bg-background px-3 sm:px-4 py-4 sm:py-6">
+        <div className="max-w-3xl mx-auto space-y-3 sm:space-y-4">
           {messages.map((message, index) => (
             <div
               key={index}
@@ -224,11 +224,11 @@ export default function SearchPage() {
 
               {/* Message Content */}
               <div
-                className={`max-w-[75%] rounded-lg ${
+                className={`max-w-[85%] sm:max-w-[75%] rounded-lg ${
                   message.role === "user"
-                    ? "bg-primary text-primary-foreground"
+                    ? "bg-[#5C4033] text-white"
                     : "bg-muted text-foreground"
-                } ${message.role === "user" && message.content === "image" ? "p-0 overflow-hidden" : "px-4 py-3"}`}
+                } ${message.role === "user" && message.content === "image" ? "p-0 overflow-hidden" : "px-3 sm:px-4 py-2 sm:py-3"}`}
               >
                 {message.content === "image" && message.image ? (
                   <div className="relative">
@@ -282,7 +282,7 @@ export default function SearchPage() {
                       <Button
                         onClick={() => handleFeedback(true, index)}
                         size="sm"
-                        className="bg-green-600 hover:bg-green-700 text-white"
+                        className="bg-[#5C4033] hover:bg-[#4a3328] text-white"
                       >
                         Yes
                       </Button>
@@ -290,7 +290,7 @@ export default function SearchPage() {
                         onClick={() => handleFeedback(false, index)}
                         size="sm"
                         variant="outline"
-                        className="border-red-600 text-red-600 hover:bg-red-50"
+                        className="border-[#5C4033] text-[#5C4033] hover:bg-[#5C4033]/10"
                       >
                         No
                       </Button>
@@ -378,7 +378,7 @@ export default function SearchPage() {
       </div>
 
       {/* Input Section */}
-      <div className="border-t border-border bg-background px-4 py-4">
+      <div className="border-t border-border bg-background px-3 sm:px-4 py-3 sm:py-4">
         <div className="max-w-3xl mx-auto">
           <form onSubmit={handleSubmit} className="flex gap-2">
             <Input
@@ -386,7 +386,7 @@ export default function SearchPage() {
               placeholder="Ask about any ingredient..."
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              className="flex-1 h-12 rounded-lg"
+              className="flex-1 h-11 sm:h-12 rounded-lg text-sm sm:text-base"
               disabled={isLoading}
             />
             <input
@@ -402,7 +402,7 @@ export default function SearchPage() {
                 type="button"
                 variant="outline"
                 size="icon"
-                className="h-12 w-12 rounded-lg"
+                className="h-11 w-11 sm:h-12 sm:w-12 rounded-lg"
                 disabled={isLoading}
                 asChild
               >
@@ -427,7 +427,7 @@ export default function SearchPage() {
             <Button
               type="submit"
               size="icon"
-              className="h-12 w-12 rounded-lg bg-foreground text-background hover:bg-foreground/90"
+              className="h-12 w-12 rounded-lg bg-[#5C4033] text-white hover:bg-[#4a3328] transition-all duration-200"
               disabled={isLoading || !query.trim()}
             >
               <Send className="h-5 w-5" />
