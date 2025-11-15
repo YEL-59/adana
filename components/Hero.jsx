@@ -38,7 +38,7 @@ export default function Hero() {
             Know What's in your Hair Products.
           </h1>
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed px-2">
-            HairSafe helps you scan and detect harmful ingredients in seconds — so you can protect your health, your hair, and your peace of mind.
+            HairiSafe helps you scan and detect harmful ingredients in seconds — so you can protect your health, your hair, and your peace of mind.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full px-4">
             <Link href="/hairisafe" className="w-full sm:w-auto">
