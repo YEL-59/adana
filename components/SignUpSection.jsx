@@ -4,25 +4,30 @@ import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Separator } from "@/components/ui/separator";
 import { Eye, EyeOff } from "lucide-react";
 
-export default function LoginSection() {
+export default function SignInSection() {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [rememberMe, setRememberMe] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
-  const handleLogin = (e) => {
+  const handleSignUp = (e) => {
     e.preventDefault();
-    // Login logic here
-    console.log("Login:", { email, password, rememberMe });
+    // Signup logic here
+    if (password !== confirmPassword) {
+      alert("Passwords do not match");
+      return;
+    }
+    console.log("Signup:", { name, email, password });
   };
 
-  const handleGoogleLogin = () => {
-    // Google login logic here
-    console.log("Google login");
+  const handleGoogleSignup = () => {
+    // Google signup logic here
+    console.log("Google signup");
   };
 
   return (
@@ -38,10 +43,26 @@ export default function LoginSection() {
           </div>
 
           {/* Title */}
-          <h2 className="text-2xl font-semibold text-gray-800 text-center mb-6">Login</h2>
+          <h2 className="text-2xl font-semibold text-gray-800 text-center mb-6">Sign Up</h2>
 
           {/* Form */}
-          <form onSubmit={handleLogin} className="space-y-5">
+          <form onSubmit={handleSignUp} className="space-y-5">
+            {/* Name Field */}
+            <div className="space-y-2">
+              <label htmlFor="name" className="text-sm font-medium text-gray-700">
+                Name
+              </label>
+              <Input
+                id="name"
+                type="text"
+                placeholder="Enter your name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className="w-full h-11 border-gray-300 focus:border-[#5C4033] focus:ring-[#5C4033]"
+                required
+              />
+            </div>
+
             {/* Email Field */}
             <div className="space-y-2">
               <label htmlFor="email" className="text-sm font-medium text-gray-700">
@@ -87,32 +108,41 @@ export default function LoginSection() {
               </div>
             </div>
 
-            {/* Remember Me & Forgot Password */}
-            <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-2">
-                <Checkbox
-                  id="remember"
-                  checked={rememberMe}
-                  onChange={(e) => setRememberMe(e.target.checked)}
+            {/* Confirm Password Field */}
+            <div className="space-y-2">
+              <label htmlFor="confirmPassword" className="text-sm font-medium text-gray-700">
+                Confirm password
+              </label>
+              <div className="relative">
+                <Input
+                  id="confirmPassword"
+                  type={showConfirmPassword ? "text" : "password"}
+                  placeholder="Password"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  className="w-full h-11 pr-10 border-gray-300 focus:border-[#5C4033] focus:ring-[#5C4033]"
+                  required
                 />
-                <label htmlFor="remember" className="text-sm text-gray-700 cursor-pointer">
-                  Remember me
-                </label>
+                <button
+                  type="button"
+                  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700"
+                >
+                  {showConfirmPassword ? (
+                    <EyeOff className="h-5 w-5" />
+                  ) : (
+                    <Eye className="h-5 w-5" />
+                  )}
+                </button>
               </div>
-              <Link
-                href="/forgot-password"
-                className="text-sm text-[#5C4033] hover:underline"
-              >
-                Forgot Password?
-              </Link>
             </div>
 
-            {/* Login Button */}
+            {/* Sign Up Button */}
             <Button
               type="submit"
               className="w-full h-11 bg-[#5C4033] text-white hover:bg-[#4a3328] font-medium"
             >
-              Login
+              Sign up
             </Button>
           </form>
 
@@ -123,11 +153,11 @@ export default function LoginSection() {
             <Separator className="flex-1" />
           </div>
 
-          {/* Google Login Button */}
+          {/* Google Signup Button */}
           <Button
             type="button"
             variant="outline"
-            onClick={handleGoogleLogin}
+            onClick={handleGoogleSignup}
             className="w-full h-11 border-gray-300 hover:bg-gray-50 font-medium"
           >
             <svg className="h-5 w-5 mr-2" viewBox="0 0 24 24">
@@ -151,11 +181,11 @@ export default function LoginSection() {
             Google
           </Button>
 
-          {/* Sign Up Link */}
+          {/* Login Link */}
           <div className="mt-6 text-center text-sm text-gray-700">
-            Don&apos;t have an account?{" "}
-            <Link href="/signup" className="text-[#5C4033] font-medium hover:underline">
-              Sign up
+            Already have an account?{" "}
+            <Link href="/login" className="text-[#5C4033] font-medium hover:underline">
+              Login
             </Link>
           </div>
         </div>

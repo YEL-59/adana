@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import HowItWorks from "@/components/HowItWorks";
 import LoginSection from "@/components/LoginSection";
-import SignInSection from "@/components/SignInSection";
+import SignInSection from "@/components/SignUpSection";
 import Hairsafe from "@/components/Hairsafe";
 import FeaturesSection from "@/components/Features";
 import Trust from "@/components/Trust";
@@ -20,7 +20,7 @@ export default function Home() {
         <FeaturesSection />
         <Trust />
         <CtaSection />
-     
+
       </main>
       <Footer />
     </div>
