@@ -24,7 +24,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2 z-50">
             <Image
-              src="/logo.png"
+              src="/logo.jpg"
               alt="Logo"
               width={80}
               height={80}
@@ -139,8 +139,9 @@ export default function Navbar() {
 
         {/* Mobile Navigation Menu */}
         <div
-          className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isMobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-            }`}
+          className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+            isMobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+          }`}
         >
           <div className="py-4 space-y-4 border-t border-border">
             <Link
