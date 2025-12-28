@@ -18,13 +18,13 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="sticky top-0 z-50 bg-[#DFBCA3] border-b border-border">
+    <nav className="sticky top-0 z-50 bg-[#FFF] border-b border-border">
       <div className="container mx-auto px-3 sm:px-4 lg:px-8">
         <div className="flex items-center justify-between h-14 sm:h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2 z-50">
             <Image
-              src="/logo.jpg"
+              src="/logo.png"
               alt="Logo"
               width={80}
               height={80}
@@ -34,30 +34,30 @@ export default function Navbar() {
 
           {/* Desktop Navigation Links */}
           <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
-            <Link
+            {/* <Link
               href="/"
               className="text-sm font-medium text-foreground hover:text-primary transition-colors"
             >
               Home
-            </Link>
-            <Link
+            </Link> */}
+            {/* <Link
               href="/shop"
               className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
             >
               Shop
-            </Link>
+            </Link> */}
             <Link
-              href="/hairisafe"
-              className="text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+              href="/"
+              className="text-sm font-medium text-[#2A2A2A] hover:text-primary/80 transition-colors border-b-2 border-[#2A2A2A]"
             >
               Hairisafe
             </Link>
-            <Link
+            {/* <Link
               href="/our-story"
               className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
             >
               Our story
-            </Link>
+            </Link> */}
             <Link
               href="/contact"
               className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
@@ -68,7 +68,7 @@ export default function Navbar() {
 
           {/* Desktop Utility Icons */}
           <div className="hidden md:flex items-center space-x-2 lg:space-x-4">
-            <Link href="/search">
+            {/* <Link href="/search">
               <Button
                 variant="ghost"
                 size="icon"
@@ -76,7 +76,7 @@ export default function Navbar() {
               >
                 <Search className="h-4 w-4 lg:h-5 lg:w-5" />
               </Button>
-            </Link>
+            </Link> */}
             <Link href="/login">
               <Button
                 variant="ghost"
@@ -86,7 +86,7 @@ export default function Navbar() {
                 <User className="h-4 w-4 lg:h-5 lg:w-5" />
               </Button>
             </Link>
-            <Button
+            {/* <Button
               variant="ghost"
               size="icon"
               className="text-foreground hover:text-primary relative h-9 w-9 lg:h-10 lg:w-10"
@@ -95,7 +95,7 @@ export default function Navbar() {
               <span className="absolute top-0 right-0 h-4 w-4 bg-primary text-primary-foreground text-xs rounded-full flex items-center justify-center">
                 0
               </span>
-            </Button>
+            </Button> */}
           </div>
 
           {/* Mobile Menu Button */}
@@ -144,7 +144,7 @@ export default function Navbar() {
           }`}
         >
           <div className="py-4 space-y-4 border-t border-border">
-            <Link
+            {/* <Link
               href="/"
               className="block text-base font-medium text-foreground hover:text-primary transition-colors py-2"
               onClick={closeMobileMenu}
@@ -157,21 +157,21 @@ export default function Navbar() {
               onClick={closeMobileMenu}
             >
               Shop
-            </Link>
+            </Link> */}
             <Link
-              href="/hairisafe"
-              className="block text-base font-medium text-primary hover:text-primary/80 transition-colors py-2"
+              href="/"
+              className="block text-base font-medium text-primary hover:text-primary/80 transition-colors py-2 border-b-2 border-primary"
               onClick={closeMobileMenu}
             >
               Hairisafe
             </Link>
-            <Link
+            {/* <Link
               href="/our-story"
               className="block text-base font-medium text-muted-foreground hover:text-primary transition-colors py-2"
               onClick={closeMobileMenu}
             >
               Our story
-            </Link>
+            </Link> */}
             <Link
               href="/contact"
               className="block text-base font-medium text-muted-foreground hover:text-primary transition-colors py-2"

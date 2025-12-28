@@ -1,58 +1,70 @@
+import { Button } from "@/components/ui/button";
+
 const Trust = () => {
-    return (
-        <div>
-            <div className=" bg-white">
-
-                {/* Trust & Transparency Section */}
-                <section className="py-12 sm:py-16 px-4 bg-white">
-                    <div className="max-w-6xl mx-auto">
-                        {/* Header */}
-                        <div className="text-center mb-4 sm:mb-6">
-                            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
-                                Trust & Transparency
-                            </h2>
-                            <p className="text-gray-600 text-base sm:text-lg mb-2 px-4">
-                                "Knowledge is power — and it starts with what you put in your hair."
-                            </p>
-                            <p className="text-gray-500 text-sm sm:text-base">— HairiSafe Team</p>
-                        </div>
-
-                        {/* Features Grid */}
-                        <div className="flex flex-wrap justify-center items-start gap-8 sm:gap-12 mt-8 sm:mt-12 md:mt-16">
-                            {/* Feature 1 */}
-                            <div className="flex flex-col items-center text-center max-w-xs">
-                                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-[#5C4033]/10 rounded-full flex items-center justify-center mb-3 sm:mb-4">
-                                    <svg className="w-8 h-8 sm:w-10 sm:h-10 text-[#5C4033]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                                    </svg>
-                                </div>
-                                <h3 className="font-bold text-gray-900 text-base sm:text-lg">Science-backed data</h3>
-                            </div>
-
-                            {/* Feature 2 */}
-                            <div className="flex flex-col items-center text-center max-w-xs">
-                                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-[#5C4033]/10 rounded-full flex items-center justify-center mb-3 sm:mb-4">
-                                    <svg className="w-8 h-8 sm:w-10 sm:h-10 text-[#5C4033]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                                    </svg>
-                                </div>
-                                <h3 className="font-bold text-gray-900 text-base sm:text-lg">No brand bias</h3>
-                            </div>
-
-                            {/* Feature 3 */}
-                            <div className="flex flex-col items-center text-center max-w-xs">
-                                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-[#5C4033]/10 rounded-full flex items-center justify-center mb-3 sm:mb-4">
-                                    <svg className="w-8 h-8 sm:w-10 sm:h-10 text-[#5C4033]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                                    </svg>
-                                </div>
-                                <h3 className="font-bold text-gray-900 text-base sm:text-lg">Built for real people</h3>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
+  return (
+    <div className="bg-white py-16 md:py-24">
+      <div className="max-w-6xl mx-auto px-6">
+        {/* Quote Section */}
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-normal text-gray-900 mb-4 max-w-3xl mx-auto leading-tight">
+            "Knowledge is power — and it starts with what you put in your hair."
+          </h2>
+          <p className="text-gray-500 text-sm">— HairSafe Team</p>
         </div>
-    )
-}
+
+        {/* Trust Features */}
+        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 mb-20">
+          {/* Feature 1 */}
+          <div className="flex items-center gap-3">
+            <div className="w-6 h-6 rounded-full border-2 border-[#8B6F47] flex items-center justify-center flex-shrink-0">
+              <div className="w-2 h-2 rounded-full bg-[#8B6F47]"></div>
+            </div>
+            <span className="text-gray-900 text-base">Science-backed data</span>
+          </div>
+
+          {/* Feature 2 */}
+          <div className="flex items-center gap-3">
+            <div className="w-6 h-6 rounded-full border-2 border-[#8B6F47] flex items-center justify-center flex-shrink-0">
+              <div className="w-2 h-2 rounded-full bg-[#8B6F47]"></div>
+            </div>
+            <span className="text-gray-900 text-base">No brand bias</span>
+          </div>
+
+          {/* Feature 3 */}
+          <div className="flex items-center gap-3">
+            <div className="w-6 h-6 rounded-full border-2 border-[#8B6F47] flex items-center justify-center flex-shrink-0">
+              <div className="w-2 h-2 rounded-full bg-[#8B6F47]"></div>
+            </div>
+            <span className="text-gray-900 text-base">
+              Built for real people
+            </span>
+          </div>
+        </div>
+
+        {/* CTA Section */}
+        <div className="text-center">
+          <h3 className="text-3xl md:text-4xl font-normal text-gray-900 mb-3">
+            Take the guesswork out of hair care.
+          </h3>
+          <p className="text-gray-600 text-base mb-8">
+            Scan smarter. Choose better. Protect your crown.
+          </p>
+
+          <div className="flex flex-wrap justify-center items-center gap-4">
+            <Button className="bg-[#5C4033] text-white px-8 py-3 rounded-full hover:bg-[#4a3328] transition-colors text-base">
+              Scan a Product
+            </Button>
+            <Button
+              variant="outline"
+              className="border-2 border-gray-300 text-gray-900 px-8 py-3 rounded-full hover:bg-gray-50 transition-colors text-base bg-white"
+            >
+              Learn How to work
+            </Button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 export default Trust;
