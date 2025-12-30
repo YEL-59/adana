@@ -5,6 +5,9 @@ import { Send, ArrowLeft, Bot, User as UserIcon, CheckCircle2, AlertTriangle, XC
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
+import { Plus } from "lucide-react";
+import { ImageIcon } from "lucide-react";
+import { FileText } from "lucide-react";
 
 export default function SearchPage() {
   const [query, setQuery] = useState("");
@@ -34,6 +37,7 @@ export default function SearchPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [feedbackGiven, setFeedbackGiven] = useState({});
   const messagesEndRef = useRef(null);
+    const [showMenu, setShowMenu] = useState(false);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -98,6 +102,7 @@ export default function SearchPage() {
       };
       reader.readAsDataURL(file);
     }
+     setShowMenu(false);
   };
 
   const handleFeedback = (isHairSafe, messageIndex) => {
@@ -378,7 +383,7 @@ export default function SearchPage() {
       </div>
 
       {/* Input Section */}
-      <div className="border-t border-border bg-background px-3 sm:px-4 py-3 sm:py-4">
+      {/* <div className="border-t border-border bg-background px-3 sm:px-4 py-3 sm:py-4">
         <div className="max-w-3xl mx-auto">
           <form onSubmit={handleSubmit} className="flex gap-2">
             <Input
@@ -434,7 +439,81 @@ export default function SearchPage() {
             </Button>
           </form>
         </div>
+      </div> */}
+       <div className="border-t border-border bg-background px-3 sm:px-4 py-3 sm:py-4">
+      <div className="max-w-3xl mx-auto">
+        <form onSubmit={handleSubmit} className="flex items-center gap-2 relative">
+          {/* ➕ Plus Button */}
+          <div className="relative">
+            <Button
+              type="button"
+              variant="outline"
+              size="icon"
+              className="h-11 w-11 sm:h-12 sm:w-12 rounded-lg"
+              onClick={() => setShowMenu((prev) => !prev)}
+              disabled={isLoading}
+            >
+              <Plus className="h-5 w-5" />
+            </Button>
+
+            {/* Dropdown */}
+            {showMenu && (
+              <div className="absolute bottom-14 left-0 w-48 rounded-lg border bg-background shadow-lg p-1 z-50">
+                <label
+                  htmlFor="image-upload"
+                  className="flex items-center gap-2 px-3 py-2 text-sm rounded-md cursor-pointer hover:bg-muted"
+                >
+                  <ImageIcon className="h-4 w-4" />
+                  Upload image
+                </label>
+
+                <button
+                  type="button"
+                  className="w-full flex items-center gap-2 px-3 py-2 text-sm rounded-md hover:bg-muted"
+                  onClick={() => {
+                    setShowMenu(false);
+                    alert("File upload coming soon");
+                  }}
+                >
+                  <FileText className="h-4 w-4" />
+                  Upload file
+                </button>
+              </div>
+            )}
+          </div>
+
+          {/* Hidden Image Input */}
+          <input
+            type="file"
+            accept="image/*"
+            id="image-upload"
+            className="hidden"
+            onChange={handleImageUpload}
+            disabled={isLoading}
+          />
+
+          {/* Text Input */}
+          <Input
+            type="text"
+            placeholder="Ask about any ingredient..."
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            className="flex-1 h-11 sm:h-12 rounded-lg text-sm sm:text-base"
+            disabled={isLoading}
+          />
+
+          {/* Send Button */}
+          <Button
+            type="submit"
+            size="icon"
+            className="h-12 w-12 rounded-lg bg-[#5C4033] text-white hover:bg-[#4a3328]"
+            disabled={isLoading || !query.trim()}
+          >
+            <Send className="h-5 w-5" />
+          </Button>
+        </form>
       </div>
+    </div>
     </div>
   );
 }

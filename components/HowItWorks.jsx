@@ -31,7 +31,6 @@ export default function HowItWorks() {
                 onError={(e) => {
                   e.target.src = "https://via.placeholder.com/600";
                 }}
-                
               />
             </div>
 
@@ -67,7 +66,7 @@ export default function HowItWorks() {
           </div>
 
           <div className="flex items-center justify-center py-4 sm:py-0">
-            <Link href="/hairisafe" className="z-10 group">
+            <Link href="/search" className="z-10 group">
               <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full bg-[#111010] text-white flex flex-col items-center justify-center shadow-lg hover:shadow-xl transition-all hover:scale-105 cursor-pointer">
                 <ArrowUpRight className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 mb-1" />
                 <span className="text-[10px] sm:text-xs md:text-sm font-medium text-center px-2 leading-tight">

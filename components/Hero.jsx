@@ -20,7 +20,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+    <section className="relative h-[70=5vh] flex items-center justify-center overflow-hidden pt-16">
       {/* Background Image with Overlay - uses local image from public folder with fallback */}
       <div className="absolute inset-0 z-0">
         <div
@@ -35,13 +35,13 @@ export default function Hero() {
 
       {/* Content Overlay */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="max-w-4xl mx-auto py-8 sm:py-12">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold  mb-4 sm:mb-6 leading-tight px-2">
+        <div className="max-w-7xl mx-auto py-8 sm:py-12">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-7xl font-bold  mb-4 sm:mb-6 leading-tight px-2">
             <span className="text-black"> Know What&apos;s in </span>
             <br></br>{" "}
             <span className="text-[#632B14]">your Hair Products.</span>
           </h1>
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed px-2">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 mb-6 sm:mb-8 max-w-4xl mx-auto leading-relaxed px-2">
             HairiSafe helps you scan and detect harmful ingredients in seconds —
             so you can protect your health, your hair, and your peace of mind.
           </p>

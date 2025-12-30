@@ -47,39 +47,37 @@ const Hairsafe = () => {
                 </div>
             </section> */}
 
-    <div className="bg-[#F3F3F5] py-20 flex items-center justify-center">
-      <div className="container mx-auto px-6">
-        <div className="flex flex-col justify-center items-start max-w-6xl mx-auto">
-          
-          <div className="mb-16 w-full">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-normal text-gray-900 leading-tight">
-              Because what we put on our hair
-            </h1>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-normal text-gray-900 leading-tight">
-              matters.
-            </h1>
-          </div>
-          
-          <div className="grid md:grid-cols-2 gap-12 md:gap-16 w-full">
-            <div>
-              <p className="text-gray-600 text-base leading-relaxed">
-                For too long, harmful ingredients have been hidden behind
-                complicated labels. Hair/safe exists to change that.
-              </p>
+      <div className="bg-[#F3F3F5] py-20 flex items-center justify-center">
+        <div className="container mx-auto px-6">
+          <div className="flex flex-col justify-center items-start md:max-w-6xl mx-auto ">
+            <div className="sm:md-2 md:mb-16 w-full ">
+              <h1 className="text-3xl md:text-5xl  lg:text-6xl font-normal text-gray-900 leading-tight">
+                Because what we put on our hair
+              </h1>
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-normal text-gray-900 leading-tight">
+                matters.
+              </h1>
             </div>
 
-            <div>
-              <p className="text-gray-900 text-base leading-relaxed">
-                We empower individuals — especially women of color — with
-                transparent, science-backed ingredient information, so you can
-                make choices that honor your health and heritage.
-              </p>
+            <div className="grid md:grid-cols-2 gap-12 md:gap-16 w-full">
+              <div>
+                <p className="text-gray-600 text-base leading-relaxed">
+                  For too long, harmful ingredients have been hidden behind
+                  complicated labels. Hair/safe exists to change that.
+                </p>
+              </div>
+
+              <div>
+                <p className="text-gray-900 text-base leading-relaxed">
+                  We empower individuals — especially women of color — with
+                  transparent, science-backed ingredient information, so you can
+                  make choices that honor your health and heritage.
+                </p>
+              </div>
             </div>
           </div>
-          
         </div>
       </div>
-    </div>
     </div>
   );
 };
