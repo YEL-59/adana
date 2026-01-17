@@ -13,92 +13,68 @@ const Trust = () => {
         </div>
 
         {/* Trust Features */}
-        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-10 mb-20">
+        <div className="flex flex-wrap justify-center items-start gap-12 md:gap-16 mb-20">
           {/* Feature 1 */}
-          <div className="flex items-center gap-3 border  border-[#E6E6E6] rounded-full px-4 py-4 md:px-6  shadow-sm hover:shadow-md transition-shadow">
-            <>
+          <div className="flex flex-col items-center gap-4 max-w-[200px]">
+            <div className="w-16 h-16 rounded-full bg-[#F5E6D3] flex items-center justify-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
+                width="32"
+                height="32"
                 viewBox="0 0 24 24"
                 fill="none"
+                stroke="#8B5A3C"
+                strokeWidth="1.5"
               >
-                <path
-                  d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
-                  stroke="#632B14"
-                  strokeWidth="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M9 12L11 14L15 10"
-                  stroke="#632B14"
-                  strokeWidth="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
+                <circle cx="12" cy="12" r="3" />
+                <path d="M12 1v6m0 6v6m5.2-14.8L13.9 7.5m-3.8 9L6.8 19.8m14.2-7.8h-6m-6 0H3m14.8 5.2-3.3-3.3m-9-9L8.8 7.5" />
               </svg>
-            </>
-            <span className="text-gray-900 text-base">Science-backed data</span>
+            </div>
+            <span className="text-gray-900 text-base font-medium text-center">
+              Science-backed data
+            </span>
           </div>
 
           {/* Feature 2 */}
-          <div className="flex items-center gap-3 border  border-[#E6E6E6] rounded-full px-4 py-4 md:px-6  shadow-sm hover:shadow-md transition-shadow">
-            <>
+          <div className="flex flex-col items-center gap-4 max-w-[200px]">
+            <div className="w-16 h-16 rounded-full bg-[#F5E6D3] flex items-center justify-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
+                width="32"
+                height="32"
                 viewBox="0 0 24 24"
                 fill="none"
+                stroke="#8B5A3C"
+                strokeWidth="1.5"
               >
-                <path
-                  d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
-                  stroke="#632B14"
-                  strokeWidth="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M9 12L11 14L15 10"
-                  stroke="#632B14"
-                  strokeWidth="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                <path d="M9 12l2 2 4-4" />
               </svg>
-            </>
-            <span className="text-gray-900 text-base">No brand bias</span>
+            </div>
+            <span className="text-gray-900 text-base font-medium text-center">
+              No brand bias
+            </span>
           </div>
 
           {/* Feature 3 */}
-          <div className="flex items-center gap-3 border  border-[#E6E6E6] rounded-full px-4 py-4 md:px-6  shadow-sm hover:shadow-md transition-shadow">
-            <>
+          <div className="flex flex-col items-center gap-4 max-w-[200px]">
+            <div className="w-16 h-16 rounded-full bg-[#F5E6D3] flex items-center justify-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
+                width="32"
+                height="32"
                 viewBox="0 0 24 24"
                 fill="none"
+                stroke="#8B5A3C"
+                strokeWidth="1.5"
               >
-                <path
-                  d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
-                  stroke="#632B14"
-                  strokeWidth="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M9 12L11 14L15 10"
-                  stroke="#632B14"
-                  strokeWidth="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
               </svg>
-            </>
-            <span className="text-gray-900 text-base">
+            </div>
+            <span className="text-gray-900 text-base font-medium text-center">
               Built for real people
             </span>
           </div>
