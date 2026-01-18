@@ -1,4 +1,11 @@
+"use client";
+
+import { useState } from "react";
+import { WaitlistModal } from "./WaitlistModal";
+
 const CtaSection = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <div>
       <section className="py-12 sm:py-16 md:py-20 px-4 bg-[#fff]">
@@ -28,13 +35,19 @@ const CtaSection = () => {
               </svg>
             </button>
 
-            <button className="bg-transparent border-2 border-[#632B14] text-[#632B14] px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium hover:bg-[#632B14] hover:text-white transition-all duration-200 w-full sm:w-auto text-sm sm:text-base">
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="bg-transparent border-2 border-[#632B14] text-[#632B14] px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium hover:bg-[#632B14] hover:text-white transition-all duration-200 w-full sm:w-auto text-sm sm:text-base cursor-pointer"
+            >
               Join the waitlist
             </button>
           </div>
         </div>
       </section>
+
+      <WaitlistModal isOpen={isModalOpen} setIsOpen={setIsModalOpen} />
     </div>
   );
 };
 export default CtaSection;
+
