@@ -110,11 +110,10 @@ export default function FeaturesSection() {
         {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-normal text-gray-900 mb-3">
-            Everything you need to know.
+            Features
           </h2>
           <p className="text-gray-600 text-base">
-            Powerful features built for your peace of mind.
-          </p>
+            Everything you need to khnow          </p>
         </div>
 
         {/* Features Grid */}

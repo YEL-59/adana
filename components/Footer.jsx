@@ -14,8 +14,7 @@ export default function Footer() {
               <Image src="/logo.png" alt="Logo" width={200} height={200} />
             </div>
             <p className="text-sm text-muted-foreground max-w-xs">
-              Our Hairitage is more than just merchandis —it’s a movement,
-              building confidence with hairstory in every strand.
+              Our Hairitage is a movement bewat to protect you and your confidences and hair choices and heritage
             </p>
 
             <div className="flex gap-3">
